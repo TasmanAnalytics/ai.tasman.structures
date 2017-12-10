@@ -1,0 +1,32 @@
+{
+		"$schema": "http://iglucentral.com/schemas/com.snowplowanalytics.self-desc/schema/jsonschema/1-0-0#",
+		"description": "Generic event to log a subscription renewal. Care should be taken to model the event: for a mobile subscription service, billing services can vary in frequency of checks and updates. Take care to only send one event per renewal.",
+		"self": {
+			"vendor": "ai.tasman",
+			"name": "subscription_renewed",
+			"format": "jsonschema",
+			"version": "1-0-0"
+		},
+		"type": "object",
+    "properties": {
+			"sku": {
+				"type": "string",
+				"maxLength": 1000
+			},
+      "renewalTimestamp": {
+        "type": ["timestamp", "null"]
+      },
+      "localPrice": {
+        "type": ["float", "null"]
+      },
+      "localCurrency": {
+        "type": ["string","null"],
+        "maxLength": 10
+      },
+      "usdPrice": {
+        "type": ["float", "null"]
+      }
+		},
+		"minProperties": 1,
+		"additionalProperties": false
+}
